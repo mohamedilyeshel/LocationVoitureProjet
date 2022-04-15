@@ -1,15 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include_once 'layout/header.php'; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Location Voiture</title>
-</head>
+<?php
+session_start();
 
-<body>
+if (isset($_SESSION['namePren'])) 
+{
+    if ($_SESSION['role'] == 'A') 
+    {
+        echo "Hello {$_SESSION['namePren']} you are the admin! you can access your dashboard from here";
+?>
+        <a href="admindash.php"> Admin Dashboard</a>
+    <?php
+    } 
+    else 
+    {
+        echo "Hello {$_SESSION['namePren']} enjoy your stay here!";
+    }
+    ?>
+    <a href="logout.php"> | Log Out</a>
+<?php
+} else {
+    echo "You have to log in";
+}
 
-</body>
+mysqli_close($conn);
+?>
 
-</html>
+<?php include_once 'layout/footer.php'; ?>

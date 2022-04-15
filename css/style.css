@@ -1,0 +1,99 @@
+/* STYLE LOCATION VOITURE PROJET */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@300;500;700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+body 
+{
+    background-color: #fff;
+}
+
+/* Login Form Style */
+.logf 
+{
+    color: #F5F3F4;
+    padding: 1.8rem;
+    background-color: #E5383B;
+}
+
+.fullheight 
+{
+    height: 100vh;
+}
+
+.formparts 
+{
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    font-size: 1.2em;
+    border-radius: 0.5rem;
+    margin-bottom: 1.8rem;
+}
+
+.ptitle 
+{
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 1.8rem;
+}
+
+.logb
+{
+    font-family: Akshar, sans-serif;
+    padding: 0.2em;
+    width: 100%;
+    border: 1px solid #fff;
+    background-color: #fff;
+    color: #E5383B;
+    font-size: 1.2em;
+    border-radius: 0;
+}
+
+.logb:hover
+{
+    border: 1px solid #fff;
+    background-color: #fff;
+    color: #161a1d;
+}
+
+.logf .formparts input
+{
+    font-size: .8em;
+    color: #F5F3F4;
+    font-family: Akshar, sans-serif;
+    background-color: transparent!important;
+    border-radius: 0;
+    border: 1px solid #F5F3F4;
+}
+
+.logf .fhr
+{
+    border-top: 1px solid #D3D3D3;
+    margin-top: 1.8rem;
+    margin-bottom: 1.8rem;
+}
+
+.signul
+{
+    text-align: center;
+    display: block;
+    color: #F5F3F4;
+    font-family: Akshar, sans-serif;
+    font-size: 1.1rem;
+    text-decoration: underline;
+}
+
+.signul:hover
+{   
+    color: #161a1d;
+}
+
+@media (max-width: 576px)
+{
+    .logf 
+    {
+        border-radius: 0;
+    }
+}
