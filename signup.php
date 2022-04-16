@@ -1,5 +1,5 @@
 <?php include_once 'layout/header.php';
-
+    //Don't let any user already logged in to acces this page
     session_start();
     if(isset($_SESSION['namePren']))
     {
@@ -44,9 +44,10 @@
                 <hr class="fhr">
                 <a href="login.php" class="signul">J'ai déja un compte</a>
             </form>
-            <?php
+            <?php                
                 if(isset($_POST['email']) && isset($_POST['mdp']))
                 {
+                    //Put all the returned values from the form in variables
                     $id = $_POST['id'];
                     $namePren = $_POST['namePren'];
                     $dateNais = $_POST['dateNais'];
@@ -54,12 +55,14 @@
                     $mdp = $_POST['mdp'];
                     $role = 'U';
 
+                    //Check if the cin written is correct
                     if(!(is_numeric($id)))
                     {
                         header('Location: signup.php?error=CIN must be a number');
                     }
                     else
                     {
+                        //Check if the cin written is not already exists
                         $i = "SELECT * from clients where id = $id";
                         $resi = mysqli_query($conn,$i);
                         if(mysqli_num_rows($resi) > 0)
@@ -68,6 +71,7 @@
                         }
                         else
                         {
+                            //Check if the email written is not already exists
                             $e = "SELECT * from clients where email = '$email'";
                             $rese = mysqli_query($conn,$e);
                             if(mysqli_num_rows($rese) > 0)
@@ -76,6 +80,7 @@
                             }
                             else
                             {
+                                //Insert the user informations in the database
                                 $q = "insert into clients (id, namePren, email, mdp, dateNais, role) values ($id, '$namePren', '$email', '$mdp', '$dateNais', '$role')";
                                 if(mysqli_query($conn,$q) == 1)
                                 {

@@ -8,6 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <?php 
+        //Based on the page's filename, those codes will change the webpage's title into the correct one
         $pages = array('index' => 'Home', 'login' => 'Login', 'signup' => 'Sign Up', 'admindash' => 'Admin Dashboard');
         foreach($pages as $path => $name)
         {

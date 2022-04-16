@@ -1,5 +1,5 @@
 <?php include_once 'layout/header.php';
-
+    //Don't let any user already logged in to acces this page
     session_start();
     if(isset($_SESSION['namePren']))
     {
@@ -41,15 +41,19 @@
             <?php
                 if(isset($_POST['email']) && isset($_POST['mdp']))
                 {
+                    //Put the values returned from the form in the variables
                     session_start();
                     $mdp = $_POST['mdp'];
                     $email = $_POST['email'];
+
+                    //Check if the email and pwd written exists or not
                     $q = "SELECT * from clients where email = '$email' && mdp = '$mdp'";
                     $res = mysqli_query($conn,$q);
                     if(mysqli_num_rows($res) == 1)
                     {
                         while($row = mysqli_fetch_assoc($res))
                         {
+                            //If the user exists then register his infos in a session array to get acces to them later
                             $_SESSION['id'] = $row['id'];
                             $_SESSION['namePren'] = $row['namePren'];
                             $_SESSION['email'] = $row['email'];

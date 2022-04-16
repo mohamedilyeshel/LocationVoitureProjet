@@ -3,6 +3,7 @@
 <?php
 session_start();
 
+// Check the user role : Admin or Normal User
 if (isset($_SESSION['namePren'])) 
 {
     if ($_SESSION['role'] == 'A') 
