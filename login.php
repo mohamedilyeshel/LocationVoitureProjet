@@ -21,9 +21,12 @@
                 </div>
                 <?php } ?>
                 <?php if (isset($_GET['success'])) { ?>
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <h4 class="alert-heading">Compte créé avec succès</h4>
                     <p>Vous pouvez connecter à votre compte maintenant!</p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <?php } ?>
                 <div class="formparts form-group ">
@@ -61,11 +64,13 @@
                             $_SESSION['dateNais'] = $row['dateNais'];
                             $_SESSION['role'] = $row['role'];
                             header('Location: index.php');
+                            exit();
                         }
                     }
                     else
                     {
                         header('Location: login.php?error=Email ou le mdp est incorrect');
+                        exit();
                     }
 
                     mysqli_close($conn);

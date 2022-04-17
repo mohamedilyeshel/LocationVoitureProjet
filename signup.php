@@ -59,6 +59,7 @@
                     if(!(is_numeric($id)))
                     {
                         header('Location: signup.php?error=CIN must be a number');
+                        exit();
                     }
                     else
                     {
@@ -68,6 +69,7 @@
                         if(mysqli_num_rows($resi) > 0)
                         {
                             header('Location: signup.php?error=CIN déja enregistré');
+                            exit();
                         }
                         else
                         {
@@ -77,6 +79,7 @@
                             if(mysqli_num_rows($rese) > 0)
                             {
                                 header('Location: signup.php?error=Email déja enregistré');
+                                exit();
                             }
                             else
                             {
@@ -89,6 +92,7 @@
                                 else
                                 {
                                     header('Location: signup.php?error=Problème de serveur Impossible de vous inscrire, essayez plus tard');
+                                    exit();
                                 }
                             }
                         }
