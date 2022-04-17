@@ -20,23 +20,23 @@
         <?php } ?>
         <div class="formparts form-group ">
             <label for="cin">CIN : </label>
-            <input type="text" class="form-control" name="id" id="cin">
+            <input type="text" class="form-control" required name="id" id="cin">
         </div>
         <div class="formparts form-group ">
             <label for="np">Nom & Prenom : </label>
-            <input type="text" class="form-control" name="namePren" id="np">
+            <input type="text" class="form-control" required name="namePren" id="np">
         </div>
         <div class="formparts form-group ">
             <label for="dn">Date De Naissance : </label>
-            <input type="Date" class="form-control" name="dateNais" id="dn">
+            <input type="Date" class="form-control" required name="dateNais" id="dn">
         </div>
         <div class="formparts form-group ">
             <label for="email">Email : </label>
-            <input type="email" class="form-control" name="email" id="email">
+            <input type="email" class="form-control" required name="email" id="email">
         </div>
         <div class="formparts form-group">
             <label for="mdp">Mot De Passe : </label>
-            <input type="password" class="form-control" name="mdp" id="mdp">
+            <input type="password" class="form-control" required name="mdp" id="mdp">
         </div>
         <div class="formparts form-group">
             <label for="inlineFormCustomSelect">Role : </label>
@@ -49,7 +49,7 @@
     </form>
 
     <?php
-    if (isset($_POST['email']) && isset($_POST['mdp'])) {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //Put all the returned values from the form in variables
         $id = $_POST['id'];
         $namePren = $_POST['namePren'];

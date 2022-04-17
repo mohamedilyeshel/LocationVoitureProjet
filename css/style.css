@@ -161,19 +161,24 @@ ul.list-group
     margin-bottom: 1rem;
 }
 
-ul.list-group li.list-group-item .dmc
+.dmc
 {
     color: #E5383B;
     float: right;
     margin-left: 15px;
 }
 
-ul.list-group li.list-group-item .aj
+.dmc:hover
+{
+    color:#161a1d;
+}
+
+.aj
 {
     color: #E5383B;    
 }
 
-ul.list-group li.list-group-item .aj i
+.aj i
 {
     margin-right: 5px;   
 }
@@ -221,6 +226,57 @@ ul.list-group li.list-group-item::first-letter, .modf .formparts label::first-le
 {
     color: #161A1D;
     font-family: Roboto, sans-serif;
+    border: 1px solid #D3D3D3;
+}
+
+/* Voiture Page Design */
+.card
+{
+    border: 0;
+    padding: 0 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-body 
+{
+    padding: 0.5rem;
+    border: 1px solid #d3d3d3;
+}
+
+.card-img, .card-img-top 
+{
+    border: 1px solid #D3D3D3;
+}
+
+.card-title {
+    font-family: 'MONTSERRAT', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    margin: 1rem 0;
+    color: #E5383B;
+}
+
+.card-body p
+{
+    color: #161A1D;
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    opacity: .7;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.card-body .dmc
+{
+    margin: 0;
+    padding: 5px;
+}
+
+.caraj
+{
+    color: #E5383B;
+    padding: 1rem;
     border: 1px solid #D3D3D3;
 }
 

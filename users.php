@@ -5,7 +5,7 @@
         <?php
 
         if (isset($_GET['del'])) {
-            $d = "Delete from clients where namePren = '{$_GET['del']}'";
+            $d = "Delete from clients where id = '{$_GET['del']}'";
             if (mysqli_query($conn, $d)) {
         ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -27,7 +27,7 @@
             ?>
                 <li class="list-group-item">
                     <?php echo $row['namePren']; ?>
-                    <a class="dmc" href="users.php?del=<?php echo $row['namePren']; ?>"><i class="bi bi-trash"></i></a>
+                    <a class="dmc" href="users.php?del=<?php echo $row['id']; ?>"><i class="bi bi-trash"></i></a>
                     <a class="dmc" href="ModifAdmin.php?modif=<?php echo $row['id']; ?>"><i class="bi bi-pen"></i></a>
                 </li>
         <?php

@@ -19,7 +19,7 @@ if (isset($_SESSION['role'])) {
         <ul class="na container-md">
             <li><i class="bi bi-house-door"></i><a href="admindash.php">Accueil</a></li>
             <li><i class="bi bi-people"></i><a href="users.php">Utilisateurs</a></li>
-            <li><i class="bi bi-minecart"></i><a href="#">Voitures</a></li>
+            <li><i class="bi bi-minecart"></i><a href="voitures.php">Voitures</a></li>
             <li><i class="bi bi-calendar2-range"></i><a href="#">Reservation</a></li>
             <li><i class="bi bi-door-closed"></i><a href="logout.php">Logout</a></li>
         </ul>

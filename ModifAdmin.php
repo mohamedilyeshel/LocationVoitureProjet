@@ -91,7 +91,7 @@
                 <div class="formparts form-group">
                     <label for="inlineFormCustomSelect">Nouveau Role : </label>
                     <select class="custom-select mr-sm-2" name="role" id="inlineFormCustomSelect">
-                        <option selected>Changer le role</option>
+                        <option selected value="N">Changer le role</option>
                         <option value="A">Admin</option>
                         <option value="U">Utilisateur Normale</option>
                     </select>
@@ -101,6 +101,7 @@
             <?php                
                 if($_SERVER['REQUEST_METHOD'] === 'POST')
                 {
+                    $done = false;
                     //Put all the returned values from the form in variables
                     $donnee = array(
                         'role' => $_POST['role'],
@@ -116,7 +117,7 @@
                         //Check if the cin written is correct
                         if(!(is_numeric($donnee['id'])))
                         {
-                            header('Location: ModifAdmin.php?error=CIN must be a number');
+                            header("Location: ModifAdmin.php?error=CIN must be a number&modif={$_SESSION['modif']}");
                             exit();
                         }
                         else
@@ -148,16 +149,27 @@
                     {
                         if(empty($dd) == false)
                         {
+                            if(($kd === 'role') && ($dd === 'N'))
+                            {
+                                continue;
+                            }
                             $u = "UPDATE clients set {$kd} = '{$dd}' where  id = '{$_SESSION['modif']}'";
                             mysqli_query($conn,$u);
+                            $done = true;
                             if($kd === 'id')
                             {
                                 $_SESSION['modif'] = $donnee['id'];
                             }
                         }
                     }
-
-                    header("Location: ModifAdmin.php?success=&modif={$_SESSION['modif']}");
+                    if($done == true)
+                    {
+                        header("Location: ModifAdmin.php?success=&modif={$_SESSION['modif']}");
+                    }  
+                    else
+                    {
+                        header("Location: ModifAdmin.php?error=Les champs de modification sont vides&modif={$_SESSION['modif']}");
+                    }
 
                     mysqli_close($conn);
                 }

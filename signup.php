@@ -45,7 +45,7 @@
                 <a href="login.php" class="signul">J'ai déja un compte</a>
             </form>
             <?php                
-                if(isset($_POST['email']) && isset($_POST['mdp']))
+                if($_SERVER['REQUEST_METHOD'] === 'POST')
                 {
                     //Put all the returned values from the form in variables
                     $id = $_POST['id'];
