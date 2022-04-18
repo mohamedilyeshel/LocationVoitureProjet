@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <?php
     //Based on the page's filename, those codes will change the webpage's title into the correct one
-    $pages = array('ModifVoiture' => 'Modification Voiture' ,'addcar' => 'Ajouter Voiture' ,'voitures' => 'Gestion Voitures' ,'adduser' => 'Ajouter Utilisateur' ,'ModifAdmin' => 'Modification Utilisateur', 'index' => 'Home', 'login' => 'Login', 'signup' => 'Sign Up', 'admindash' => 'Admin Dashboard', 'users' => 'Gestion Utilisateur');
+    $pages = array('reservation' => 'Reservation Voiture' ,'ModifVoiture' => 'Modification Voiture' ,'addcar' => 'Ajouter Voiture' ,'voitures' => 'Gestion Voitures' ,'adduser' => 'Ajouter Utilisateur' ,'ModifAdmin' => 'Modification Utilisateur', 'index' => 'Home', 'login' => 'Login', 'signup' => 'Sign Up', 'admindash' => 'Admin Dashboard', 'users' => 'Gestion Utilisateur');
     foreach ($pages as $path => $name) {
         if (basename($_SERVER['PHP_SELF'], ".php") === $path) {
             $pName = $name;
