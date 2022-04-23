@@ -4,7 +4,20 @@
     <div class="row align-items-center">
             <?php
 
-            if (isset($_GET['del'])) {
+            if (isset($_GET['del'])) 
+            {
+                $i1 = "SELECT img from voitures where mat = '{$_GET['del']}'";
+                $i1d = mysqli_query($conn, $i1);
+
+                if(mysqli_num_rows($i1d) > 0)
+                {
+                    while($row = mysqli_fetch_assoc($i1d))
+                    {
+                        $iPath = "image/{$row['img']}";
+                        unlink($iPath);
+                    }
+                }
+
                 $d = "Delete from voitures where mat = '{$_GET['del']}'";
                 if (mysqli_query($conn, $d)) {
             ?>

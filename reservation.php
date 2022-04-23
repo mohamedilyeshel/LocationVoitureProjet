@@ -97,12 +97,15 @@
                     exit();
                 }
 
-                function reserv($rese)
+                function reserv($rese, $alShown)
                 {
                     if (mysqli_num_rows($rese) > 0) 
                     {
                         while ($row = mysqli_fetch_assoc($rese)) 
-                        {   
+                        {  
+                            if(in_array($row['mat'], $alShown) == false)
+                            {
+                                $alShown[] = $row['mat'];
                     ?>
                             <li class="list-group-item">
                                 <?php 
@@ -112,27 +115,28 @@
                                 ?>
                                 <a href="reservation.php?tot=<?php echo $tot; ?>&matr=<?php echo $row['mat'] ?>" class="dmc"><i class="bi bi-calendar2-range"></i>Reserver</a>
                             </li>
-                    <?php                       
+                    <?php 
+                            }                      
                         }
                     }
-                    else
-                    {
-                        echo 'no result ';
-                    }
+
+                    return $alShown;
                 }
+
+                $alShown = array();
 
                 if(mysqli_num_rows(mysqli_query($conn,"SELECT * FROM reservation")) == 0)
                 {
                     unset($res);
                     $q1 = "SELECT mat, nomV, pJ from voitures";
                     $res = mysqli_query($conn, $q1);
-                    reserv($res);         
+                    $alShown = reserv($res, $alShown);         
                 }
                 else
                 {
                     $q = array(
                         "SELECT V.mat, V.nomV, V.pJ from voitures V, reservation R 
-                        where (V.mat = R.mat) and ( ('{$_SESSION['dateP']}' < R.dateP) or ('{$_SESSION['dateP']}' > R.dateR))",
+                        where (V.mat = R.mat) and ( (('{$_SESSION['dateP']}' < R.dateP) and ('{$_SESSION['dateR']}' < R.dateP)) or (('{$_SESSION['dateP']}' > R.dateR) and ('{$_SESSION['dateR']}' > R.dateR)) )",
                         "SELECT mat, nomV, pJ from voitures where mat not in (select mat from reservation)"
                     );
 
@@ -140,13 +144,16 @@
                     {
                         unset($res);
                         $res = mysqli_query($conn, $qu);
-                        reserv($res);
+                        $alShown = reserv($res, $alShown);
                     }
                 }
             }
 
             mysqli_close($conn);
         ?>
+        <li class="list-group-item d-flex justify-content-center">
+            <a href="allreserv.php" class="aj"><i class="bi bi-calendar2-range"></i>Afficher les reservations</a>
+        </li>
     </ul>
 </div>
 
