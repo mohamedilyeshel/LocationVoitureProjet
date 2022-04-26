@@ -18,20 +18,33 @@
     </form>
     <?php
 
+    function succ($req, $msg, $conn)
+    {
+        if (mysqli_query($conn, $req)) {
+            ?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <?php echo $msg; ?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <?php
+                } 
+                else 
+                {
+                    echo "Failed to confirm the reservation";
+                }
+    }
+
+    if(isset($_GET['conf']))
+    {
+        $c = "UPDATE reservation set etat = 'A' where  numRes = '{$_GET['conf']}'";
+        succ($c, "Reservation Confirmé", $conn);
+    }
+
     if (isset($_GET['del'])) {
         $d = "Delete from reservation where numRes = '{$_GET['del']}'";
-        if (mysqli_query($conn, $d)) {
-    ?>
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                Reservation Supprimée Avec Succée
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        <?php
-        } else {
-            echo "Failed to delete";
-        }
+        succ($d, "Reservation Supprimé", $conn);
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -64,6 +77,14 @@
                         echo 'Nom Client : ' . $row['namePren'] . ' | Nom Voiture : ' . $row['nomV'] . ' | Date De Prise : ' . $row['dateP'] . ' | Date De Retour : ' . $row['dateR'] . ' | Prix Totale : ' . $row['total'] . 'dt';
                         ?>
                         <a href="allreserv.php?del=<?php echo $row['numRes']; ?>" class="dmc"><i class="bi bi-trash"></i></a>
+                        <?php 
+                            if($row['etat'] === 'P')
+                            {
+                        ?>       
+                        <a href="allreserv.php?conf=<?php echo $row['numRes'] ?>" class="dmc">Confirmer</a>
+                        <?php
+                            }
+                        ?>
                     </li>
         <?php
                 }
