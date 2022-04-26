@@ -124,7 +124,7 @@ nav ul.na li
 nav ul.na li a
 {
     color: white;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 nav ul.na li:hover
@@ -165,7 +165,6 @@ ul.list-group
 {
     color: #E5383B;
     float: right;
-    margin-left: 15px;
 }
 
 .dmc:hover
@@ -267,20 +266,234 @@ ul.list-group li.list-group-item::first-letter, .modf .formparts label::first-le
     overflow: hidden;
 }
 
-.card-body .dmc
-{
-    margin: 0;
-    padding: 5px;
-}
-
 .caraj
 {
     color: #E5383B;
     padding: 1rem;
     border: 1px solid #D3D3D3;
+    margin-bottom: 1rem;
 }
 
-@media (max-width: 576px)
+/* Statistiques Page Design */
+.statBull
+{
+    padding: 0 1rem 1rem;
+}
+
+.statBull .statcont
+{
+    padding: 2rem;
+    background-color: #ff9f1c;
+    border-radius: .5em;
+    box-shadow: 0px 5px 10px -5px #161A1D;
+}
+
+.statBull:nth-of-type(2) .statcont
+{
+    background-color: #E71D36;
+}
+
+.statBull:nth-of-type(3) .statcont
+{
+    background-color: #2EC4B6;
+}
+
+.statBull:nth-of-type(4) .statcont
+{
+    background-color: #011627;
+}
+
+.statBull .ct
+{
+    margin: 0;
+    color: white;
+    text-align: center;
+}
+
+.statBull .ptitle
+{
+    margin: 0;
+    color: white;
+}
+
+/* User Interface */
+
+/* Home Page Design */
+nav ul.na li div.dropdown-menu.show
+{
+    transform: none!important;
+    top : 100%!important;
+    width: 100%;
+    overflow: hidden;
+    border-color: #D3D3D3;
+}
+
+nav ul.na li a.dropdown-item
+{
+    color:rgba(22, 26, 29, .6);
+    margin-left: 0;
+    font-weight: 300;
+    font-family: Roboto, sans-serif;
+    letter-spacing: 2px;
+}
+
+nav ul.na li a.dropdown-item:hover
+{
+    color:rgba(22, 26, 29, 1);
+    background-color: rgba(229, 56, 59, 0.6);
+}
+
+#lastVoit
+{
+    margin-bottom: 1rem;
+}
+
+#lastVoit .carousel-item .carousel-caption
+{
+    background-color: rgb(22 26 29 / 70%);
+    padding: 1rem;
+    text-align: left;
+    color: #D3D3D3;
+    font-family: 'MONTSERRAT', sans-serif;
+}
+
+#lastVoit .carousel-item .carousel-caption h5
+{
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #D3D3D3    ;
+    text-align: center;
+    font-weight: 700;
+    color: #E5383B;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+#lastVoit .carousel-item .carousel-caption p
+{
+    font-family: 'Roboto', sans-serif;
+    opacity: .8;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#hRes
+{
+    background-color: #161a1d;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    padding: 1rem 0;
+}
+
+#hRes .modf
+{
+    margin: 0;
+    background: transparent;
+}
+
+#hRes .modf .formparts label
+{
+    color: #E5383B;
+}
+
+#hRes ul.list-group .list-group-item::first-letter
+{
+    font-weight: 400;
+}
+
+#hRes .modf .formparts label::first-letter
+{
+    font-weight: 300;
+}
+
+#hRes .modf .formparts input 
+{
+    color: #fff;
+    font-family: Roboto, sans-serif;
+}
+
+#hRes ul.list-group
+{
+    margin: 0;
+}
+
+#hRes ul.list-group .list-group-item:first-child
+{
+    border-top: none;
+}
+
+#hRes .modf .logb
+{
+    border: 1px solid #D3D3D3;
+    background-color: transparent;
+    color: #d3d3d3;
+}
+
+#hRes .modf .logb:hover
+{
+    border: 1px solid #E5383B;
+    color: #fff;
+    background-color: #E5383B;
+}
+
+#hRes ul.list-group .list-group-item 
+{
+    background-color: #fff;
+    border-left:0;
+    border-right:0;
+    color: #161a1d;
+}
+
+.dmc i
+{
+    margin-right: 5px;
+}
+
+.aprop
+{
+    background-color: white;
+    margin-bottom: 1rem;
+}
+
+.aprop .display-4 {
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    font-family: 'MONTSERRAT', sans-serif;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #D3D3D3;
+    padding-bottom: 1rem;
+    color: #E5383B;
+}
+
+.supp 
+{
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* Footer Design */
+.copyright
+{
+    background-color: #161a1d;
+    color: white;
+}
+
+.copyright p 
+{
+    margin: 1rem 0;
+    font-weight: 300;
+    font-family: Roboto, sans-serif;
+    letter-spacing: 2px;
+}
+
+.copyright p i
+{
+    color: #E5383B;
+}
+
+@media (max-width:  710px)
 {
     .logf 
     {
@@ -295,5 +508,10 @@ ul.list-group li.list-group-item::first-letter, .modf .formparts label::first-le
     nav ul.na
     {
         flex-direction: column;
+    }
+
+    .copyright p 
+    {
+        margin: 1rem;
     }
 }
